@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OM4-rX-Rl9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fkx-vD-Qdb">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
+        <!--設定-->
+        <scene sceneID="B0E-cM-LXf">
+            <objects>
+                <navigationController id="ZIf-QG-saV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="設定" id="IU9-Ml-gPm"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="um1-TK-FdL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3lq-XF-EI3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p2m-Q3-Vi4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1245" y="933"/>
+        </scene>
         <!--設定-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -19,11 +36,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="設定" id="nge-qx-0Xq"/>
-                    <navigationItem key="navigationItem" id="Zdf-hz-Dxo"/>
+                    <navigationItem key="navigationItem" title="設定" id="Zdf-hz-Dxo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="923"/>
+            <point key="canvasLocation" x="1631" y="933"/>
+        </scene>
+        <!--一覧-->
+        <scene sceneID="kkZ-bq-Xy2">
+            <objects>
+                <navigationController id="Nt6-RC-RhO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="一覧" id="NbA-hZ-Kb8"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gB2-iK-jeT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TJH-BL-yxu" kind="relationship" relationship="rootViewController" id="1RF-YN-zu8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rEy-vd-hBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1245" y="187"/>
         </scene>
         <!--一覧-->
         <scene sceneID="bDk-do-iiN">
@@ -39,10 +73,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="一覧" id="aol-4M-J16"/>
+                    <navigationItem key="navigationItem" title="一覧" id="PBF-mK-UCr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jH-DC-Yrm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="187"/>
+            <point key="canvasLocation" x="1631" y="187"/>
         </scene>
         <!--勤怠管理アプリ-->
         <scene sceneID="CvV-8E-MmD">
@@ -55,13 +90,66 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="TJH-BL-yxu" kind="relationship" relationship="viewControllers" id="8hZ-9k-ZsA"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="zuZ-kV-yZ8"/>
+                        <segue destination="Nt6-RC-RhO" kind="relationship" relationship="viewControllers" id="6an-cu-GQ6"/>
+                        <segue destination="ZIf-QG-saV" kind="relationship" relationship="viewControllers" id="PhC-9z-e04"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZq-PP-0D6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="848" y="187"/>
+        </scene>
+        <!--Animator Delegate-->
+        <scene sceneID="vQx-1Q-fMd">
+            <objects>
+                <viewController id="cXN-CB-cux" customClass="TopViewController" customModule="AttendanceManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t4P-OG-tC2"/>
+                        <viewControllerLayoutGuide type="bottom" id="vaR-Pa-xkr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Wd-eR-tTg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzn-69-d5l">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yrq-Hq-LnY" customClass="CVCalendarMenuView" customModule="CVCalendar">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="menuViewDelegate" destination="cXN-CB-cux" id="u1W-xf-ehY"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nJO-HS-RdG" customClass="CVCalendarView" customModule="CVCalendar">
+                                        <rect key="frame" x="0.0" y="40" width="375" height="250"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="animatorDelegate" destination="cXN-CB-cux" id="o9w-Xy-CeO"/>
+                                            <outlet property="calendarAppearanceDelegate" destination="cXN-CB-cux" id="Dl3-5S-VfY"/>
+                                            <outlet property="calendarDelegate" destination="cXN-CB-cux" id="auf-XV-K84"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zzn-69-d5l" firstAttribute="top" secondItem="t4P-OG-tC2" secondAttribute="bottom" id="6MK-fz-j2W"/>
+                            <constraint firstItem="vaR-Pa-xkr" firstAttribute="top" secondItem="zzn-69-d5l" secondAttribute="bottom" id="BhN-Ac-hiy"/>
+                            <constraint firstAttribute="trailing" secondItem="zzn-69-d5l" secondAttribute="trailing" id="Zbe-bV-P7d"/>
+                            <constraint firstItem="zzn-69-d5l" firstAttribute="leading" secondItem="5Wd-eR-tTg" secondAttribute="leading" id="pwG-1Y-2fd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="勤怠管理アプリ" id="dkM-WQ-5NU"/>
+                    <connections>
+                        <outlet property="calendarView" destination="nJO-HS-RdG" id="u52-1z-Cnl"/>
+                        <outlet property="menuView" destination="Yrq-Hq-LnY" id="LNR-K1-e8l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d3C-Eh-BLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-72.5" y="893.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Sg-iS-7vl">
@@ -79,6 +167,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krD-rJ-sPs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="452" y="187"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rGD-wB-vch">
+            <objects>
+                <navigationController id="Fkx-vD-Qdb" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ziy-Mx-k5Y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cXN-CB-cux" kind="relationship" relationship="rootViewController" id="lfo-KB-CAT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SOF-yW-gKs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-516" y="894"/>
         </scene>
     </scenes>
 </document>

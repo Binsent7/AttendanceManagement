@@ -1,4 +1,6 @@
 PODS:
+  - CVCalendar (1.2.9)
+  - EZLoadingActivity (0.8)
   - Realm (0.98.2):
     - Realm/Headers (= 0.98.2)
   - Realm/Headers (0.98.2)
@@ -7,10 +9,14 @@ PODS:
   - SwiftDate (2.0.2)
 
 DEPENDENCIES:
+  - CVCalendar (~> 1.2.8)
+  - EZLoadingActivity
   - RealmSwift
   - SwiftDate (~> 2.0)
 
 SPEC CHECKSUMS:
+  CVCalendar: 0799256e0bc3b43e83b7e86c0729ce9ff0624cb6
+  EZLoadingActivity: 6fd75a05765a4085f4b6fef6f62edf9f144b3139
   Realm: 88a147fe04b8f07191a676b15c779b2b448991de
   RealmSwift: 9907c7415b3e19ef2ab9f89878fc890f03f93aea
   SwiftDate: b4f4d0962afe48365ad2800c9850a6626deb9359
