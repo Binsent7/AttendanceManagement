@@ -121,9 +121,10 @@ extension TopViewController: CVCalendarViewDelegate {
     
     // 背景Viewを表示するかの判定
     func preliminaryView(shouldDisplayOnDayView dayView: DayView) -> Bool {
-        if let date = dayView.date {
-            return !date.holidayName.isEmpty
-        }
+        // FIXME: 休日判定の実装
+//        if let date = dayView.date {
+//            return !date.holidayName.isEmpty
+//        }
         return false
    }
     
