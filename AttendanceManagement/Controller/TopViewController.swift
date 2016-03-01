@@ -16,6 +16,12 @@ class TopViewController: UIViewController {
     @IBOutlet weak var menuView: CVCalendarMenuView!
     @IBOutlet weak var calendarView: CVCalendarView!
     
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var startTimeLabel: UILabel!
+    @IBOutlet weak var endTimeLabel: UILabel!
+    @IBOutlet weak var restTimeLabel: UILabel!
+    @IBOutlet weak var MemoLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateTitle(date: NSDate())
@@ -72,7 +78,7 @@ extension TopViewController: CVCalendarViewDelegate {
     }
     /// リサイズ時のアニメーション
     func shouldAnimateResizing() -> Bool{
-        return true
+        return false
     }
     /// 週切り替え時に自動的に指定するか
     func shouldAutoSelectDayOnWeekChange() -> Bool {
