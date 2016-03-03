@@ -15,6 +15,7 @@
 		32AF82A61C79EF0D00396079 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AF82A41C79EF0D00396079 /* LaunchScreen.storyboard */; };
 		32AF82B11C79EF0D00396079 /* AttendanceManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF82B01C79EF0D00396079 /* AttendanceManagementTests.swift */; };
 		32AF82BD1C79F01300396079 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF82BC1C79F01300396079 /* TopViewController.swift */; };
+		32CCAC991C888ECF00BC64ED /* SelectTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CCAC981C888ECF00BC64ED /* SelectTypeViewController.swift */; };
 		92C7A3D788B1831342F8C1DD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D11233C082B81C503F01491C /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		32AF82B01C79EF0D00396079 /* AttendanceManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceManagementTests.swift; sourceTree = "<group>"; };
 		32AF82B21C79EF0D00396079 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32AF82BC1C79F01300396079 /* TopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
+		32CCAC981C888ECF00BC64ED /* SelectTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTypeViewController.swift; sourceTree = "<group>"; };
 		B87A8F310D997391EC7E8961 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D11233C082B81C503F01491C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -112,6 +114,7 @@
 			children = (
 				32AF82BC1C79F01300396079 /* TopViewController.swift */,
 				3240D7C61C85EC820026DA6A /* InputAttendanceViewController.swift */,
+				32CCAC981C888ECF00BC64ED /* SelectTypeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3240D7C71C85EC820026DA6A /* InputAttendanceViewController.swift in Sources */,
+				32CCAC991C888ECF00BC64ED /* SelectTypeViewController.swift in Sources */,
 				32AF82BD1C79F01300396079 /* TopViewController.swift in Sources */,
 				3217DB511C831B0D001360B2 /* CVDate.swift in Sources */,
 				32AF829C1C79EF0C00396079 /* AppDelegate.swift in Sources */,

@@ -309,10 +309,50 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="勤怠入力" id="DQu-yr-tj2"/>
+                    <connections>
+                        <segue destination="gpI-RX-yYm" kind="show" identifier="ShowSelectType" id="m8D-l4-aQx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Qs-tb-1jZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368.5" y="1673.5"/>
+            <point key="canvasLocation" x="374.5" y="1673.5"/>
+        </scene>
+        <!--種別選択-->
+        <scene sceneID="UPQ-UO-XnT">
+            <objects>
+                <viewController id="gpI-RX-yYm" customClass="SelectTypeViewController" customModule="AttendanceManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ca0-xC-mGD"/>
+                        <viewControllerLayoutGuide type="bottom" id="zkh-dz-iL0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oIv-ok-Bwd">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="dcb-xt-RaS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="gpI-RX-yYm" id="D3e-LK-04c"/>
+                                    <outlet property="delegate" destination="gpI-RX-yYm" id="HfS-XW-k6V"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dcb-xt-RaS" firstAttribute="top" secondItem="Ca0-xC-mGD" secondAttribute="bottom" id="03L-Az-gdY"/>
+                            <constraint firstAttribute="trailing" secondItem="dcb-xt-RaS" secondAttribute="trailing" id="BD3-7T-7uq"/>
+                            <constraint firstItem="zkh-dz-iL0" firstAttribute="top" secondItem="dcb-xt-RaS" secondAttribute="bottom" id="LaT-5q-ZRR"/>
+                            <constraint firstItem="dcb-xt-RaS" firstAttribute="leading" secondItem="oIv-ok-Bwd" secondAttribute="leading" id="T9h-3W-bDb"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="種別選択" id="yKE-Zv-bWE"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mAh-a5-2df" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="834.5" y="1673.5"/>
         </scene>
     </scenes>
 </document>
