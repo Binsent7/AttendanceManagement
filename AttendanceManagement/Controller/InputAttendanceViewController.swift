@@ -16,21 +16,25 @@ class InputAttendanceViewController: UIViewController {
     typealias InputAttendanceCompletionHandler = (Void -> Void)
     
     var completionHandler: InputAttendanceCompletionHandler?
-    
     var attendanceInformation = AttendanceInformation()
+    var currentDate = NSDate()
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let startTimeComponents         = defaultDateComponents() + 10.hours
+        let endTimeComponents           = defaultDateComponents() + 19.hours
+        let restStartTimeComponents     = defaultDateComponents() + 13.hours
+        let restEndTimeComponents       = defaultDateComponents() + 14.hours
         attendanceInformation.type          = "出勤"
-        attendanceInformation.startTime     = NSDate()
-        attendanceInformation.endTime       = NSDate()
-        attendanceInformation.lestStartTime = 13
-        attendanceInformation.lestEndTime   = 14
+        attendanceInformation.startTime     = NSDate(components: startTimeComponents)!
+        attendanceInformation.endTime       = NSDate(components: endTimeComponents)!
+        attendanceInformation.restStartTime = NSDate(components: restStartTimeComponents)!
+        attendanceInformation.restEndTime   = NSDate(components: restEndTimeComponents)!
         attendanceInformation.memo          = "メモ"
-        attendanceInformation.date          = "\(attendanceInformation.startTime.year)\(attendanceInformation.startTime.month)\(attendanceInformation.startTime.day)"
+        attendanceInformation.date          = String(format: "%d/%02d/%02d",attendanceInformation.startTime.year,attendanceInformation.startTime.month,attendanceInformation.startTime.day)
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,6 +56,18 @@ class InputAttendanceViewController: UIViewController {
         close()
     }
     
+    private func defaultDateComponents() -> NSDateComponents {
+        let dateComponents = NSDateComponents()
+        dateComponents.calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
+        dateComponents.timeZone = NSTimeZone(name: "ja_JP")
+        dateComponents.year     = currentDate.year
+        dateComponents.month    = currentDate.month
+        dateComponents.day      = currentDate.day
+        dateComponents.hour     = 0
+        dateComponents.minute   = 0
+        return dateComponents
+    }
+    
     // Realmに保存
     private func saveAttendance() {
         let realm = try! Realm()
@@ -62,19 +78,7 @@ class InputAttendanceViewController: UIViewController {
     
     // 閉じる
     private func close() {
-        // FIXME: Realmへ保存
         dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-//        if (segue.identifier == "ShowSelectType") {
-//            if let selectTypeViewController = segue.destinationViewController as? SelectTypeViewController {
-//                let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-//                if let cell = tableView.cellForRowAtIndexPath(indexPath) where !cell.textLabel!.text!.isEmpty, let currentText = cell.textLabel!.text {
-//                    selectTypeViewController.currentType = currentText
-//                }
-//            }
-//        }
     }
 }
 
@@ -96,11 +100,14 @@ extension InputAttendanceViewController: UITableViewDataSource {
         case 0:
             cell.textLabel?.text = attendanceInformation.type
         case 1:
-            cell.textLabel?.text = "\(attendanceInformation.startTime.year)年\(attendanceInformation.startTime.month)月\(attendanceInformation.startTime.day)日 \(attendanceInformation.startTime.hour)時\(attendanceInformation.startTime.minute)分"
+            let text = String(format: "%02d年%02d月%02d日 %02d時%02d分",attendanceInformation.startTime.year,attendanceInformation.startTime.month,attendanceInformation.startTime.day,attendanceInformation.startTime.hour,attendanceInformation.startTime.minute)
+            cell.textLabel?.text = text
         case 2:
-            cell.textLabel?.text = "\(attendanceInformation.endTime.year)年\(attendanceInformation.endTime.month)月\(attendanceInformation.endTime.day)日 \(attendanceInformation.endTime.hour)時\(attendanceInformation.endTime.minute)分"
+            let text = String(format: "%02d年%02d月%02d日 %02d時%02d分",attendanceInformation.endTime.year,attendanceInformation.endTime.month,attendanceInformation.endTime.day,attendanceInformation.endTime.hour,attendanceInformation.endTime.minute)
+            cell.textLabel?.text = text
         case 3:
-            cell.textLabel?.text = "\(attendanceInformation.lestStartTime) 〜 \(attendanceInformation.lestEndTime)"
+            let text = String(format: "%02d時%02d分 〜 %02d時%02d分",attendanceInformation.restStartTime.hour,attendanceInformation.restStartTime.minute,attendanceInformation.restEndTime.hour,attendanceInformation.restEndTime.minute)
+            cell.textLabel?.text = text
         case 4:
             cell.textLabel?.text = attendanceInformation.memo
         default:
@@ -136,7 +143,6 @@ extension InputAttendanceViewController: UITableViewDelegate {
         switch indexPath.section {
         case 0:
             print("種別")
-//            performSegueWithIdentifier("ShowSelectType", sender: nil)
         case 1:
             print("開始時間")
         case 2:

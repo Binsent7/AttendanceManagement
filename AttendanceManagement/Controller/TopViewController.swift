@@ -21,13 +21,11 @@ class TopViewController: UIViewController {
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var restTimeLabel: UILabel!
     @IBOutlet weak var MemoLabel: UILabel!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateTitle(date: NSDate())
-        updateCuttentAttendance(date: calendarView.presentedDate)
-        
-        print(try! Realm().objects(AttendanceInformation))
+        updateCuttentAttendance(date: calendarView.presentedDate)        
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,16 +41,13 @@ class TopViewController: UIViewController {
     
     // 指定の勤怠情報を更新
     private func updateCuttentAttendance(date date: CVDate) {
-        print(date.year)
-        print(date.month)
-        print(date.day)
         let realm = try! Realm()
-        
-        if let attendance = realm.objectForPrimaryKey(AttendanceInformation.self, key: "\(date.year)\(date.month)\(date.day)") {
+        let id = String(format: "%d/%02d/%02d",date.year,date.month,date.day)
+        if let attendance = realm.objectForPrimaryKey(AttendanceInformation.self, key: id) {
             typeLabel.text      = attendance.type
             startTimeLabel.text = "\(attendance.startTime)"
             endTimeLabel.text   = "\(attendance.endTime)"
-            restTimeLabel.text  = "\(attendance.lestStartTime) 〜 \(attendance.lestEndTime)"
+            restTimeLabel.text  = "\(attendance.restStartTime) 〜 \(attendance.restEndTime)"
             MemoLabel.text      = "\(attendance.memo)"
         }
         else {

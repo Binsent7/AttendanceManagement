@@ -44,6 +44,10 @@
                                             <outlet property="calendarDelegate" destination="cXN-CB-cux" id="auf-XV-K84"/>
                                         </connections>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EM6-dv-Oba">
+                                        <rect key="frame" x="0.0" y="290" width="375" height="269"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Cs-4S-eUT">
                                         <rect key="frame" x="0.0" y="290" width="375" height="269"/>
                                         <subviews>
@@ -188,8 +192,12 @@
                                 <constraints>
                                     <constraint firstItem="1Cs-4S-eUT" firstAttribute="top" secondItem="zzn-69-d5l" secondAttribute="top" constant="290" id="EVR-VH-5yc"/>
                                     <constraint firstItem="pUT-KP-AYY" firstAttribute="top" secondItem="1Cs-4S-eUT" secondAttribute="bottom" id="H7y-Zu-lby"/>
+                                    <constraint firstItem="pUT-KP-AYY" firstAttribute="top" secondItem="EM6-dv-Oba" secondAttribute="bottom" id="KVh-g5-nLe"/>
+                                    <constraint firstAttribute="trailing" secondItem="EM6-dv-Oba" secondAttribute="trailing" id="LUc-dt-Ezs"/>
                                     <constraint firstAttribute="bottom" secondItem="pUT-KP-AYY" secondAttribute="bottom" id="Lwt-Gd-4vL"/>
                                     <constraint firstItem="pUT-KP-AYY" firstAttribute="leading" secondItem="zzn-69-d5l" secondAttribute="leading" id="NMW-nK-eTY"/>
+                                    <constraint firstItem="EM6-dv-Oba" firstAttribute="top" secondItem="nJO-HS-RdG" secondAttribute="bottom" id="Pez-sy-1nj"/>
+                                    <constraint firstItem="EM6-dv-Oba" firstAttribute="leading" secondItem="zzn-69-d5l" secondAttribute="leading" id="Ujr-tY-t8L"/>
                                     <constraint firstAttribute="trailing" secondItem="Yrq-Hq-LnY" secondAttribute="trailing" id="XPh-oS-ip4"/>
                                     <constraint firstItem="nJO-HS-RdG" firstAttribute="top" secondItem="Yrq-Hq-LnY" secondAttribute="bottom" id="flo-8d-c3O"/>
                                     <constraint firstItem="nJO-HS-RdG" firstAttribute="leading" secondItem="zzn-69-d5l" secondAttribute="leading" id="gA9-iv-BJU"/>
@@ -224,6 +232,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3C-Eh-BLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-72.5" y="893.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5aZ-VI-NTK">
+            <objects>
+                <navigationController id="XsX-DV-5pq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KlS-jo-B1Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YE0-X6-WHj" kind="relationship" relationship="rootViewController" id="zpa-uN-5hB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="crV-gp-0i9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="403.5" y="893.5"/>
+        </scene>
+        <!--設定-->
+        <scene sceneID="hkF-kY-pjs">
+            <objects>
+                <viewController id="YE0-X6-WHj" customClass="SettingViewController" customModule="AttendanceManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AiE-1Y-sNl"/>
+                        <viewControllerLayoutGuide type="bottom" id="qnY-6t-DYb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Lr-04-LmO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9J-xw-nL4">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="SHT-lC-bv5"/>
+                                    <barButtonItem title="キャンセル" id="mRR-VX-o4a">
+                                        <connections>
+                                            <action selector="onTapCancelButton:" destination="YE0-X6-WHj" id="IDW-LP-yjv"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="UZh-gW-cry"/>
+                                    <barButtonItem title="保存" id="BHI-W0-TGG">
+                                        <connections>
+                                            <action selector="onTapSaveButon:" destination="YE0-X6-WHj" id="CtF-A5-dbd"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gAj-pU-NYD"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="vQ7-7q-dTc">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="YE0-X6-WHj" id="VgG-Ue-1BJ"/>
+                                    <outlet property="delegate" destination="YE0-X6-WHj" id="1vY-la-zCP"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vQ7-7q-dTc" firstAttribute="top" secondItem="AiE-1Y-sNl" secondAttribute="bottom" id="3Sl-hT-FTA"/>
+                            <constraint firstItem="F9J-xw-nL4" firstAttribute="top" secondItem="vQ7-7q-dTc" secondAttribute="bottom" id="9dI-za-8S2"/>
+                            <constraint firstItem="F9J-xw-nL4" firstAttribute="leading" secondItem="3Lr-04-LmO" secondAttribute="leading" id="AUq-Op-zEs"/>
+                            <constraint firstItem="vQ7-7q-dTc" firstAttribute="leading" secondItem="3Lr-04-LmO" secondAttribute="leading" id="Tjo-9f-r7s"/>
+                            <constraint firstAttribute="trailing" secondItem="F9J-xw-nL4" secondAttribute="trailing" id="lYb-FO-18Y"/>
+                            <constraint firstAttribute="trailing" secondItem="vQ7-7q-dTc" secondAttribute="trailing" id="xya-GS-fYG"/>
+                            <constraint firstItem="qnY-6t-DYb" firstAttribute="top" secondItem="F9J-xw-nL4" secondAttribute="bottom" id="zal-Sm-rBY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="設定" id="Ssn-FX-XMm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPz-UN-beb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="861.5" y="893.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lfh-Ew-26Z">
@@ -332,7 +412,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="dcb-xt-RaS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gpI-RX-yYm" id="D3e-LK-04c"/>
                                     <outlet property="delegate" destination="gpI-RX-yYm" id="HfS-XW-k6V"/>
