@@ -44,10 +44,6 @@
                                             <outlet property="calendarDelegate" destination="cXN-CB-cux" id="auf-XV-K84"/>
                                         </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EM6-dv-Oba">
-                                        <rect key="frame" x="0.0" y="290" width="375" height="269"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Cs-4S-eUT">
                                         <rect key="frame" x="0.0" y="290" width="375" height="269"/>
                                         <subviews>
@@ -168,6 +164,24 @@
                                             <constraint firstItem="OPW-W8-Py6" firstAttribute="top" secondItem="877-Ay-GeF" secondAttribute="bottom" constant="10" id="qnX-Gb-7DX"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EM6-dv-Oba">
+                                        <rect key="frame" x="0.0" y="290" width="375" height="269"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="入力されていません" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUG-g4-ZiC">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="269"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="UUG-g4-ZiC" secondAttribute="bottom" id="B0G-eF-UoZ"/>
+                                            <constraint firstItem="UUG-g4-ZiC" firstAttribute="leading" secondItem="EM6-dv-Oba" secondAttribute="leading" id="Moo-gA-xfJ"/>
+                                            <constraint firstItem="UUG-g4-ZiC" firstAttribute="top" secondItem="EM6-dv-Oba" secondAttribute="top" id="TNn-X2-uLm"/>
+                                            <constraint firstAttribute="trailing" secondItem="UUG-g4-ZiC" secondAttribute="trailing" id="h2w-35-Phu"/>
+                                        </constraints>
+                                    </view>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUT-KP-AYY">
                                         <rect key="frame" x="0.0" y="559" width="375" height="44"/>
                                         <constraints>
@@ -224,6 +238,7 @@
                         <outlet property="calendarView" destination="nJO-HS-RdG" id="u52-1z-Cnl"/>
                         <outlet property="endTimeLabel" destination="VaA-D1-Ttw" id="Zuv-dz-0lA"/>
                         <outlet property="menuView" destination="Yrq-Hq-LnY" id="LNR-K1-e8l"/>
+                        <outlet property="noInputView" destination="EM6-dv-Oba" id="blU-OH-xIb"/>
                         <outlet property="restTimeLabel" destination="Ade-jQ-AkC" id="GOm-6G-2sS"/>
                         <outlet property="startTimeLabel" destination="jFZ-cZ-jv8" id="pgS-NF-zsN"/>
                         <outlet property="typeLabel" destination="Mlb-SR-wIj" id="K7G-zl-du6"/>
@@ -237,6 +252,7 @@
         <scene sceneID="5aZ-VI-NTK">
             <objects>
                 <navigationController id="XsX-DV-5pq" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KlS-jo-B1Z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -258,11 +274,11 @@
                         <viewControllerLayoutGuide type="bottom" id="qnY-6t-DYb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Lr-04-LmO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F9J-xw-nL4">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="SHT-lC-bv5"/>
                                     <barButtonItem title="キャンセル" id="mRR-VX-o4a">
@@ -280,7 +296,7 @@
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="vQ7-7q-dTc">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="YE0-X6-WHj" id="VgG-Ue-1BJ"/>

@@ -23,6 +23,8 @@ class TopViewController: UIViewController {
     @IBOutlet weak var restTimeLabel: UILabel!
     @IBOutlet weak var MemoLabel: UILabel!
     
+    @IBOutlet weak var noInputView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -48,6 +50,7 @@ class TopViewController: UIViewController {
         let realm = try! Realm()
         let id = String(format: "%d/%02d/%02d",date.year,date.month,date.day)
         if let attendance = realm.objectForPrimaryKey(AttendanceInformation.self, key: id) {
+            noInputView.hidden  = true
             typeLabel.text      = attendance.type
             startTimeLabel.text = "\(attendance.startTime)"
             endTimeLabel.text   = "\(attendance.endTime)"
@@ -55,7 +58,7 @@ class TopViewController: UIViewController {
             MemoLabel.text      = "\(attendance.memo)"
         }
         else {
-            // FIXME: 勤怠が存在しない場合の表示出し分け
+            noInputView.hidden = false
             typeLabel.text      = ""
             startTimeLabel.text = ""
             endTimeLabel.text   = ""
