@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3217DB511C831B0D001360B2 /* CVDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217DB501C831B0D001360B2 /* CVDate.swift */; };
 		3240D7C71C85EC820026DA6A /* InputAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3240D7C61C85EC820026DA6A /* InputAttendanceViewController.swift */; };
+		324B04B41C8BD36D00B47344 /* AttendanceInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324B04B31C8BD36D00B47344 /* AttendanceInformation.swift */; };
+		324B04B71C8BD3EE00B47344 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324B04B61C8BD3EE00B47344 /* NSDate.swift */; };
 		32AF829C1C79EF0C00396079 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF829B1C79EF0C00396079 /* AppDelegate.swift */; };
 		32AF82A11C79EF0C00396079 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AF829F1C79EF0C00396079 /* Main.storyboard */; };
 		32AF82A31C79EF0D00396079 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32AF82A21C79EF0D00396079 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		234197ADF1BAC39D9A190CA2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3217DB501C831B0D001360B2 /* CVDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVDate.swift; sourceTree = "<group>"; };
 		3240D7C61C85EC820026DA6A /* InputAttendanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAttendanceViewController.swift; sourceTree = "<group>"; };
+		324B04B31C8BD36D00B47344 /* AttendanceInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceInformation.swift; sourceTree = "<group>"; };
+		324B04B61C8BD3EE00B47344 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		32AF82981C79EF0C00396079 /* AttendanceManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttendanceManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32AF829B1C79EF0C00396079 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32AF82A01C79EF0C00396079 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		324B04B51C8BD3D600B47344 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				324B04B61C8BD3EE00B47344 /* NSDate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		32AF828F1C79EF0C00396079 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +104,7 @@
 			children = (
 				32AF829B1C79EF0C00396079 /* AppDelegate.swift */,
 				32AF829F1C79EF0C00396079 /* Main.storyboard */,
+				324B04B51C8BD3D600B47344 /* Extensions */,
 				32AF82BE1C79F23A00396079 /* Model */,
 				32AF82C01C79F28C00396079 /* View */,
 				32AF82BB1C79EFC600396079 /* Controller */,
@@ -123,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				3217DB501C831B0D001360B2 /* CVDate.swift */,
+				324B04B31C8BD36D00B47344 /* AttendanceInformation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -315,8 +329,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3240D7C71C85EC820026DA6A /* InputAttendanceViewController.swift in Sources */,
+				324B04B41C8BD36D00B47344 /* AttendanceInformation.swift in Sources */,
 				32CCAC991C888ECF00BC64ED /* SelectTypeViewController.swift in Sources */,
 				32AF82BD1C79F01300396079 /* TopViewController.swift in Sources */,
+				324B04B71C8BD3EE00B47344 /* NSDate.swift in Sources */,
 				3217DB511C831B0D001360B2 /* CVDate.swift in Sources */,
 				32AF829C1C79EF0C00396079 /* AppDelegate.swift in Sources */,
 			);

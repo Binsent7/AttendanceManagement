@@ -12,7 +12,7 @@ DEPENDENCIES:
   - CVCalendar (~> 1.2.8)
   - EZLoadingActivity
   - RealmSwift
-  - SwiftDate (~> 2.0)
+  - SwiftDate
 
 SPEC CHECKSUMS:
   CVCalendar: 0799256e0bc3b43e83b7e86c0729ce9ff0624cb6

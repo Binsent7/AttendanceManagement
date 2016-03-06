@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import CVCalendar
-import SwiftDate
+import RealmSwift
 
 class TopViewController: UIViewController {
     
@@ -21,10 +21,13 @@ class TopViewController: UIViewController {
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var restTimeLabel: UILabel!
     @IBOutlet weak var MemoLabel: UILabel!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         updateTitle(date: NSDate())
+        updateCuttentAttendance(date: calendarView.presentedDate)
+        
+        print(try! Realm().objects(AttendanceInformation))
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,11 +40,32 @@ class TopViewController: UIViewController {
         calendarView.commitCalendarViewUpdate()
         menuView.commitMenuViewUpdate()
     }
-}
-
-// MARK: - Private
-
-extension TopViewController {
+    
+    // 指定の勤怠情報を更新
+    private func updateCuttentAttendance(date date: CVDate) {
+        print(date.year)
+        print(date.month)
+        print(date.day)
+        let realm = try! Realm()
+        
+        if let attendance = realm.objectForPrimaryKey(AttendanceInformation.self, key: "\(date.year)\(date.month)\(date.day)") {
+            typeLabel.text      = attendance.type
+            startTimeLabel.text = "\(attendance.startTime)"
+            endTimeLabel.text   = "\(attendance.endTime)"
+            restTimeLabel.text  = "\(attendance.lestStartTime) 〜 \(attendance.lestEndTime)"
+            MemoLabel.text      = "\(attendance.memo)"
+        }
+        else {
+            // FIXME: 勤怠が存在しない場合の表示出し分け
+            typeLabel.text      = ""
+            startTimeLabel.text = ""
+            endTimeLabel.text   = ""
+            restTimeLabel.text  = ""
+            MemoLabel.text      = ""
+        }
+    }
+    
+    // タイトルを更新
     private func updateTitle(date date: NSDate) {
         let date = CVDate(date: date)
         title = "\(date.year)年 \(date.month)月"
@@ -92,10 +116,10 @@ extension TopViewController: CVCalendarViewDelegate {
     func shouldShowWeekdaysOut() -> Bool {
         return false
     }
-    // 日付が選択されたタイミングにコールされる
-    func didSelectDayView(dayView: DayView, animationDidFinish: Bool) {
-    }
+    // 日付が更新された際にコール
     func presentedDateUpdated(date: Date) {
+        updateCuttentAttendance(date: date)
+        print(date)
     }
     
     // マーカー設定関連

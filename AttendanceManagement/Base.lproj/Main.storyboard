@@ -310,6 +310,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="勤怠入力" id="DQu-yr-tj2"/>
                     <connections>
+                        <outlet property="tableView" destination="y3N-V3-n0V" id="kxA-SS-zNH"/>
                         <segue destination="gpI-RX-yYm" kind="show" identifier="ShowSelectType" id="m8D-l4-aQx"/>
                     </connections>
                 </viewController>
