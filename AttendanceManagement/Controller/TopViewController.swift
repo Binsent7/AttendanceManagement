@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CVCalendar
 import RealmSwift
+import SwiftDate
 
 class TopViewController: UIViewController {
     
@@ -24,8 +25,11 @@ class TopViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         updateTitle(date: NSDate())
-        updateCuttentAttendance(date: calendarView.presentedDate)        
+        updateCuttentAttendance(date: calendarView.presentedDate)
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,6 +68,16 @@ class TopViewController: UIViewController {
     private func updateTitle(date date: NSDate) {
         let date = CVDate(date: date)
         title = "\(date.year)年 \(date.month)月"
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if  segue.identifier == "ShowInputAttendance",
+            let navigationController = segue.destinationViewController as? UINavigationController,
+            let viewController = navigationController.viewControllers.first as? InputAttendanceViewController {
+                let date = calendarView.presentedDate
+                let currentDate = NSDate(components: NSDate.defaultDateComponents(year: date.year, month: date.month, day: date.day))!
+                viewController.currentDate = currentDate + 1.days
+        }
     }
 }
 
@@ -114,7 +128,6 @@ extension TopViewController: CVCalendarViewDelegate {
     // 日付が更新された際にコール
     func presentedDateUpdated(date: Date) {
         updateCuttentAttendance(date: date)
-        print(date)
     }
     
     // マーカー設定関連

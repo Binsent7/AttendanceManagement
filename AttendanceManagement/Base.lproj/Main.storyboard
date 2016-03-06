@@ -179,7 +179,7 @@
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="r9J-gH-61F"/>
                                             <barButtonItem title="入力" id="wJP-3e-Ipi">
                                                 <connections>
-                                                    <segue destination="rmg-0h-DSJ" kind="presentation" id="Mlw-kM-5kb"/>
+                                                    <segue destination="rmg-0h-DSJ" kind="presentation" identifier="ShowInputAttendance" id="Mlw-kM-5kb"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="bG5-8c-k8g"/>

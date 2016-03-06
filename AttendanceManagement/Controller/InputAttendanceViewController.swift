@@ -17,17 +17,18 @@ class InputAttendanceViewController: UIViewController {
     
     var completionHandler: InputAttendanceCompletionHandler?
     var attendanceInformation = AttendanceInformation()
-    var currentDate = NSDate()
+    var currentDate = NSDate.zero
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let startTimeComponents         = defaultDateComponents() + 10.hours
-        let endTimeComponents           = defaultDateComponents() + 19.hours
-        let restStartTimeComponents     = defaultDateComponents() + 13.hours
-        let restEndTimeComponents       = defaultDateComponents() + 14.hours
+        let dateComponents = NSDate.defaultDateComponents(year: currentDate.year, month: currentDate.month, day: currentDate.day)
+        let startTimeComponents         = dateComponents + 10.hours
+        let endTimeComponents           = dateComponents + 19.hours
+        let restStartTimeComponents     = dateComponents + 13.hours
+        let restEndTimeComponents       = dateComponents + 14.hours
         attendanceInformation.type          = "出勤"
         attendanceInformation.startTime     = NSDate(components: startTimeComponents)!
         attendanceInformation.endTime       = NSDate(components: endTimeComponents)!
@@ -55,19 +56,7 @@ class InputAttendanceViewController: UIViewController {
     @IBAction func onTapCancelButton(sender: AnyObject) {
         close()
     }
-    
-    private func defaultDateComponents() -> NSDateComponents {
-        let dateComponents = NSDateComponents()
-        dateComponents.calendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
-        dateComponents.timeZone = NSTimeZone(name: "ja_JP")
-        dateComponents.year     = currentDate.year
-        dateComponents.month    = currentDate.month
-        dateComponents.day      = currentDate.day
-        dateComponents.hour     = 0
-        dateComponents.minute   = 0
-        return dateComponents
-    }
-    
+        
     // Realmに保存
     private func saveAttendance() {
         let realm = try! Realm()
