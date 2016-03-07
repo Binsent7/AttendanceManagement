@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3217DB511C831B0D001360B2 /* CVDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3217DB501C831B0D001360B2 /* CVDate.swift */; };
+		3218325A1C8DBD9300F81961 /* SelectDateTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321832591C8DBD9300F81961 /* SelectDateTimeViewController.swift */; };
 		3240D7C71C85EC820026DA6A /* InputAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3240D7C61C85EC820026DA6A /* InputAttendanceViewController.swift */; };
 		324B04B41C8BD36D00B47344 /* AttendanceInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324B04B31C8BD36D00B47344 /* AttendanceInformation.swift */; };
 		324B04B71C8BD3EE00B47344 /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324B04B61C8BD3EE00B47344 /* NSDate.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		234197ADF1BAC39D9A190CA2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		3217DB501C831B0D001360B2 /* CVDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVDate.swift; sourceTree = "<group>"; };
+		321832591C8DBD9300F81961 /* SelectDateTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDateTimeViewController.swift; sourceTree = "<group>"; };
 		3240D7C61C85EC820026DA6A /* InputAttendanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAttendanceViewController.swift; sourceTree = "<group>"; };
 		324B04B31C8BD36D00B47344 /* AttendanceInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceInformation.swift; sourceTree = "<group>"; };
 		324B04B61C8BD3EE00B47344 /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				32AF82BC1C79F01300396079 /* TopViewController.swift */,
 				3240D7C61C85EC820026DA6A /* InputAttendanceViewController.swift */,
 				32CCAC981C888ECF00BC64ED /* SelectTypeViewController.swift */,
+				321832591C8DBD9300F81961 /* SelectDateTimeViewController.swift */,
 				324B04B81C8C2EC100B47344 /* SettingViewController.swift */,
 			);
 			path = Controller;
@@ -337,6 +340,7 @@
 				3240D7C71C85EC820026DA6A /* InputAttendanceViewController.swift in Sources */,
 				324B04B41C8BD36D00B47344 /* AttendanceInformation.swift in Sources */,
 				32CCAC991C888ECF00BC64ED /* SelectTypeViewController.swift in Sources */,
+				3218325A1C8DBD9300F81961 /* SelectDateTimeViewController.swift in Sources */,
 				324B04B91C8C2EC100B47344 /* SettingViewController.swift in Sources */,
 				32AF82BD1C79F01300396079 /* TopViewController.swift in Sources */,
 				324B04B71C8BD3EE00B47344 /* NSDate.swift in Sources */,

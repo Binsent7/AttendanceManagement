@@ -46,6 +46,30 @@ class InputAttendanceViewController: UIViewController {
         super.viewDidLayoutSubviews()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowSelectType", let viewController = segue.destinationViewController as? SelectTypeViewController {
+            // 種別選択画面
+            viewController.instanciate() { [weak self] selectedType in
+                self?.attendanceInformation.type = selectedType
+                self?.tableView.reloadData()
+            }
+        }
+        else if segue.identifier == "ShowSelectStartDateTime", let viewController = segue.destinationViewController as? SelectDateTimeViewController {
+            // 開始時間選択画面
+            viewController.instanciate(date: attendanceInformation.startTime) { [weak self] selectedDate in
+                self?.attendanceInformation.startTime = selectedDate
+                self?.tableView.reloadData()
+            }
+        }
+        else if segue.identifier == "ShowSelectEndDateTime", let viewController = segue.destinationViewController as? SelectDateTimeViewController {
+            // 終了時間選択画面
+            viewController.instanciate(date: attendanceInformation.endTime) { [weak self] selectedDate in
+                self?.attendanceInformation.endTime = selectedDate
+                self?.tableView.reloadData()
+            }
+        }
+    }
+    
     /// 決定ボタン
     @IBAction func onTapDoneButton(sender: AnyObject) {
         saveAttendance()
@@ -82,9 +106,10 @@ extension InputAttendanceViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .Default, reuseIdentifier: "cell")
-//        if indexPath.section == 0 {
-//            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-//        }
+        if indexPath.section == 0 {
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        }
+        
         switch indexPath.section {
         case 0:
             cell.textLabel?.text = attendanceInformation.type
@@ -129,10 +154,13 @@ extension InputAttendanceViewController: UITableViewDelegate {
         switch indexPath.section {
         case 0:
             print("種別")
+            performSegueWithIdentifier("ShowSelectType", sender: self)
         case 1:
             print("開始時間")
+            performSegueWithIdentifier("ShowSelectStartDateTime", sender: self)
         case 2:
             print("終了時間")
+            performSegueWithIdentifier("ShowSelectEndDateTime", sender: self)
         case 3:
             print("休憩時間")
         case 4:

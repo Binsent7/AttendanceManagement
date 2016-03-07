@@ -412,6 +412,8 @@
                     <connections>
                         <outlet property="tableView" destination="y3N-V3-n0V" id="kxA-SS-zNH"/>
                         <segue destination="gpI-RX-yYm" kind="show" identifier="ShowSelectType" id="m8D-l4-aQx"/>
+                        <segue destination="jzv-yO-FBJ" kind="show" identifier="ShowSelectStartDateTime" id="0Fu-94-KLn"/>
+                        <segue destination="jzv-yO-FBJ" kind="show" identifier="ShowSelectEndDateTime" id="MB9-E1-uwD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Qs-tb-1jZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -427,12 +429,12 @@
                         <viewControllerLayoutGuide type="bottom" id="zkh-dz-iL0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oIv-ok-Bwd">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="dcb-xt-RaS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dcb-xt-RaS">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gpI-RX-yYm" id="D3e-LK-04c"/>
                                     <outlet property="delegate" destination="gpI-RX-yYm" id="HfS-XW-k6V"/>
@@ -447,7 +449,6 @@
                             <constraint firstItem="dcb-xt-RaS" firstAttribute="leading" secondItem="oIv-ok-Bwd" secondAttribute="leading" id="T9h-3W-bDb"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="種別選択" id="yKE-Zv-bWE"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -455,5 +456,67 @@
             </objects>
             <point key="canvasLocation" x="834.5" y="1673.5"/>
         </scene>
+        <!--時間選択-->
+        <scene sceneID="Z6u-M5-WhQ">
+            <objects>
+                <viewController title="時間選択" id="jzv-yO-FBJ" customClass="SelectDateTimeViewController" customModule="AttendanceManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pca-hD-Nod"/>
+                        <viewControllerLayoutGuide type="bottom" id="f0C-nd-dtb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nub-Fh-zMH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ys1-sE-TZ1">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Vir-tl-SdX"/>
+                                    <barButtonItem title="キャンセル" id="FCL-Zy-hvE">
+                                        <connections>
+                                            <action selector="onTapCancelButton:" destination="jzv-yO-FBJ" id="T2Z-xB-PG0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="UyD-Y7-lyR"/>
+                                    <barButtonItem title="決定" id="YdP-LI-I5J">
+                                        <connections>
+                                            <action selector="onTapDoneButton:" destination="jzv-yO-FBJ" id="s2c-ti-2Cc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="iib-cz-2Lw"/>
+                                </items>
+                            </toolbar>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="CaH-lg-uW4">
+                                <rect key="frame" x="0.0" y="407" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="479050953.16805798">
+                                    <!--2016-03-07 13:42:33 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-31654800">
+                                    <!--1999-12-31 15:00:00 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="ja_JP"/>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" red="0.87068039021164023" green="0.87068039021164023" blue="0.87068039021164023" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ys1-sE-TZ1" firstAttribute="leading" secondItem="Nub-Fh-zMH" secondAttribute="leading" id="9jA-0b-Q1U"/>
+                            <constraint firstAttribute="trailing" secondItem="Ys1-sE-TZ1" secondAttribute="trailing" id="DER-qV-zer"/>
+                            <constraint firstAttribute="trailing" secondItem="CaH-lg-uW4" secondAttribute="trailing" id="E22-AD-2bU"/>
+                            <constraint firstItem="Ys1-sE-TZ1" firstAttribute="top" secondItem="CaH-lg-uW4" secondAttribute="bottom" id="Hwh-eb-1qv"/>
+                            <constraint firstItem="f0C-nd-dtb" firstAttribute="top" secondItem="Ys1-sE-TZ1" secondAttribute="bottom" id="Qgb-Mj-RUi"/>
+                            <constraint firstItem="CaH-lg-uW4" firstAttribute="leading" secondItem="Nub-Fh-zMH" secondAttribute="leading" id="t1m-kd-UoB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="CaH-lg-uW4" id="dzT-Mn-cWS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NcK-BD-ljo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="834.5" y="2517.5"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MB9-E1-uwD"/>
+    </inferredMetricsTieBreakers>
 </document>
