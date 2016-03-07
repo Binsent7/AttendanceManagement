@@ -45,16 +45,24 @@ class TopViewController: UIViewController {
         menuView.commitMenuViewUpdate()
     }
     
+    /// 今日ボタンタップ時にコール
+    @IBAction func onTapTodayButton(sender: AnyObject) {
+        calendarView.presentedDate = CVDate(date: NSDate())
+        
+        // FIXME: 選択状態も更新する
+    }
+    
     // 指定の勤怠情報を更新
     private func updateCuttentAttendance(date date: CVDate) {
         let realm = try! Realm()
-        let id = String(format: "%d/%02d/%02d",date.year,date.month,date.day)
+        
+        let id = AttendanceInformation.convertPrimaryKey(year: date.year, month: date.month, day: date.day)
         if let attendance = realm.objectForPrimaryKey(AttendanceInformation.self, key: id) {
             noInputView.hidden  = true
             typeLabel.text      = attendance.type
-            startTimeLabel.text = "\(attendance.startTime)"
-            endTimeLabel.text   = "\(attendance.endTime)"
-            restTimeLabel.text  = "\(attendance.restStartTime) 〜 \(attendance.restEndTime)"
+            startTimeLabel.text = "\(attendance.startTimeDisplay)"
+            endTimeLabel.text   = "\(attendance.endTimeDisplay)"
+            restTimeLabel.text  = "\(attendance.restStartTimeDisplay) 〜 \(attendance.restEndTimeDisplay)"
             MemoLabel.text      = "\(attendance.memo)"
         }
         else {

@@ -189,7 +189,11 @@
                                         </constraints>
                                         <items>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="LSb-hf-hEF"/>
-                                            <barButtonItem title="今日" id="qJ9-0g-On1"/>
+                                            <barButtonItem title="今日" id="qJ9-0g-On1">
+                                                <connections>
+                                                    <action selector="onTapTodayButton:" destination="cXN-CB-cux" id="S1G-wr-nTr"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="r9J-gH-61F"/>
                                             <barButtonItem title="入力" id="wJP-3e-Ipi">
                                                 <connections>

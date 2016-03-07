@@ -29,7 +29,6 @@ class SettingViewController: UIViewController {
     // 保存ボタンタップ
     @IBAction func onTapSaveButon(sender: AnyObject) {
         // FIXME: 保存する処理
-        
         close()
     }
     

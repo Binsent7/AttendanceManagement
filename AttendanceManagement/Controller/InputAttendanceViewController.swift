@@ -35,7 +35,7 @@ class InputAttendanceViewController: UIViewController {
         attendanceInformation.restStartTime = NSDate(components: restStartTimeComponents)!
         attendanceInformation.restEndTime   = NSDate(components: restEndTimeComponents)!
         attendanceInformation.memo          = "メモ"
-        attendanceInformation.date          = String(format: "%d/%02d/%02d",attendanceInformation.startTime.year,attendanceInformation.startTime.month,attendanceInformation.startTime.day)
+        attendanceInformation.date          = AttendanceInformation.convertPrimaryKey(year: attendanceInformation.startTime.year, month: attendanceInformation.startTime.month, day: attendanceInformation.startTime.day)
     }
     
     override func didReceiveMemoryWarning() {
@@ -89,14 +89,11 @@ extension InputAttendanceViewController: UITableViewDataSource {
         case 0:
             cell.textLabel?.text = attendanceInformation.type
         case 1:
-            let text = String(format: "%02d年%02d月%02d日 %02d時%02d分",attendanceInformation.startTime.year,attendanceInformation.startTime.month,attendanceInformation.startTime.day,attendanceInformation.startTime.hour,attendanceInformation.startTime.minute)
-            cell.textLabel?.text = text
+            cell.textLabel?.text = "\(attendanceInformation.startTimeDisplay)"
         case 2:
-            let text = String(format: "%02d年%02d月%02d日 %02d時%02d分",attendanceInformation.endTime.year,attendanceInformation.endTime.month,attendanceInformation.endTime.day,attendanceInformation.endTime.hour,attendanceInformation.endTime.minute)
-            cell.textLabel?.text = text
+            cell.textLabel?.text = "\(attendanceInformation.endTimeDisplay)"
         case 3:
-            let text = String(format: "%02d時%02d分 〜 %02d時%02d分",attendanceInformation.restStartTime.hour,attendanceInformation.restStartTime.minute,attendanceInformation.restEndTime.hour,attendanceInformation.restEndTime.minute)
-            cell.textLabel?.text = text
+            cell.textLabel?.text = "\(attendanceInformation.restStartTimeDisplay) 〜 \(attendanceInformation.restEndTimeDisplay)"
         case 4:
             cell.textLabel?.text = attendanceInformation.memo
         default:
