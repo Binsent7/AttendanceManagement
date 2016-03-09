@@ -13,6 +13,8 @@ import RealmSwift
 
 class InputAttendanceViewController: UIViewController {
     
+    // FIXME: segue.identifierの定数定義
+    
     typealias InputAttendanceCompletionHandler = Void -> Void
     
     var completionHandler: InputAttendanceCompletionHandler?
@@ -126,11 +128,32 @@ class InputAttendanceViewController: UIViewController {
     
     // 勤怠情報を初期化
     private func defaultAttendanceInformation() {
+        var startHour: Int = 9
+        var startMinute: Int = 0
+        var endHour: Int = 18
+        var endMinute: Int = 0
+        var restStartHour: Int = 12
+        var restStartMinute: Int = 0
+        var restEndHour: Int = 13
+        var restEndMinute: Int = 0
+        let realm = try! Realm()
+        if let value = realm.objectForPrimaryKey(BasicAttendance.self, key: "1") {
+            let basicAttendance = BasicAttendance(value: value)
+            startHour = basicAttendance.startHour
+            startMinute = basicAttendance.startMinute
+            endHour = basicAttendance.endHour
+            endMinute = basicAttendance.endMinute
+            restStartHour = basicAttendance.restStartHour
+            restStartMinute = basicAttendance.restStartMinute
+            restEndHour = basicAttendance.restEndHour
+            restEndMinute = basicAttendance.restEndMinute
+        }
+        
         let dateComponents = NSDate.defaultDateComponents(year: currentDate.year, month: currentDate.month, day: currentDate.day)
-        let startTimeComponents         = dateComponents + 10.hours
-        let endTimeComponents           = dateComponents + 19.hours
-        let restStartTimeComponents     = dateComponents + 13.hours
-        let restEndTimeComponents       = dateComponents + 14.hours
+        let startTimeComponents         = dateComponents + startHour.hours + startMinute.minutes
+        let endTimeComponents           = dateComponents + endHour.hours + endMinute.minutes
+        let restStartTimeComponents     = dateComponents + restStartHour.hours + restStartMinute.minutes
+        let restEndTimeComponents       = dateComponents + restEndHour.hours + restEndMinute.minutes
         attendanceInformation.type          = "出勤"
         attendanceInformation.startTime     = NSDate(components: startTimeComponents)!
         attendanceInformation.endTime       = NSDate(components: endTimeComponents)!
