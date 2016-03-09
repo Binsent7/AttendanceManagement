@@ -13,7 +13,7 @@ import RealmSwift
 
 class InputAttendanceViewController: UIViewController {
     
-    typealias InputAttendanceCompletionHandler = (Void -> Void)
+    typealias InputAttendanceCompletionHandler = Void -> Void
     
     var completionHandler: InputAttendanceCompletionHandler?
     var attendanceInformation = AttendanceInformation()
@@ -22,6 +22,11 @@ class InputAttendanceViewController: UIViewController {
     let sectionTitleList = ["種別","開始時間","終了時間","休憩開始時間","休憩終了時間","その他"]
     
     @IBOutlet weak var tableView: UITableView!
+    
+    func instanciate(date date: NSDate = NSDate(), completionHandler: InputAttendanceCompletionHandler?) {
+        self.completionHandler = completionHandler
+        currentDate = date
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,8 +100,10 @@ class InputAttendanceViewController: UIViewController {
     
     /// 決定ボタン
     @IBAction func onTapDoneButton(sender: AnyObject) {
+        attendanceInformation.updateWorkTime()
         saveAttendance()
         close()
+        completionHandler?()
     }
     
     /// キャンセルボタン

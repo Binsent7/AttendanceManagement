@@ -78,16 +78,43 @@ class TopViewController: UIViewController {
     // タイトルを更新
     private func updateTitle(date date: NSDate) {
         let date = CVDate(date: date)
-        title = "\(date.year)年 \(date.month)月"
+        // FIXME: 計算について仮
+        title = "\(date.year)年 \(date.month)月 勤務時間：\(countMonthTotalTime() / 60 / 60)時間"
+    }
+    
+    // 指定月の累計勤怠時間を計算
+    private func countMonthTotalTime() -> Double {
+        let realm = try! Realm()
+        
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        let timeZone = NSTimeZone(name: "ja_JP")
+        let locale = NSLocale.currentLocale()
+        
+        let region = Region(cal: calendar, tz: timeZone, loc: locale)
+        let firstDate = calendarView.presentedDate.date.startOf(.Month, inRegion: region)
+        let endDate = calendarView.presentedDate.date.endOf(.Month, inRegion: region)
+        let monthPredicate = NSPredicate(format: "%@ <= startTime && startTime <= %@", firstDate,endDate)
+        let attendanceListForMonth = realm.objects(AttendanceInformation).filter(monthPredicate)
+        
+        var totalMonthWorkTime = 0.0
+        attendanceListForMonth.forEach {
+            print("=============")
+            print($0.workTime)
+            print($0.totalWorkTime)
+            print($0.restTime)
+            totalMonthWorkTime += $0.workTime
+        }
+        
+        return totalMonthWorkTime
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if  segue.identifier == "ShowInputAttendance",
+        if segue.identifier == "ShowInputAttendance",
             let navigationController = segue.destinationViewController as? UINavigationController,
             let viewController = navigationController.viewControllers.first as? InputAttendanceViewController {
                 let date = calendarView.presentedDate
                 let currentDate = NSDate(components: NSDate.defaultDateComponents(year: date.year, month: date.month, day: date.day))!
-                viewController.currentDate = currentDate + 1.days
+                viewController.instanciate(date: currentDate + 1.days, completionHandler: nil)
         }
     }
 }

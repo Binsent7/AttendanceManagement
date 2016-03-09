@@ -18,6 +18,7 @@ class AttendanceInformation: Object {
     dynamic var restStartTime   = NSDate.zero
     dynamic var restEndTime     = NSDate.zero
     dynamic var memo            = ""
+    dynamic var workTime        = 0.0
     
     override static func primaryKey() -> String? {
         return "date"
@@ -32,6 +33,12 @@ extension AttendanceInformation {
         }
         return String(format: "%02d/%02d/%02d",year,month,day)
     }
+    
+    // 勤務時間を計算
+    func updateWorkTime() {
+        workTime = totalWorkTime - restTime
+    }
+    
     // 開始時間
     var startTimeDisplay: String {
         return String(format: "%02d/%02d/%02d %02d:%02d",startTime.year,startTime.month,startTime.day,startTime.hour,startTime.minute)
@@ -47,5 +54,13 @@ extension AttendanceInformation {
     // 休憩終了時間
     var restEndTimeDisplay: String {
         return String(format: "%02d:%02d",restEndTime.hour,restEndTime.minute)
+    }
+    // 作業時間
+    var totalWorkTime: NSTimeInterval {
+        return abs(startTime.timeIntervalSinceDate(endTime))
+    }
+    // 休憩時間
+    var restTime: NSTimeInterval {
+        return abs(restStartTime.timeIntervalSinceDate(restEndTime))
     }
 }
