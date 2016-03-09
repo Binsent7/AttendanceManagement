@@ -19,23 +19,18 @@ class InputAttendanceViewController: UIViewController {
     var attendanceInformation = AttendanceInformation()
     var currentDate = NSDate.zero
     
+    let sectionTitleList = ["種別","開始時間","終了時間","休憩開始時間","休憩終了時間","その他"]
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dateComponents = NSDate.defaultDateComponents(year: currentDate.year, month: currentDate.month, day: currentDate.day)
-        let startTimeComponents         = dateComponents + 10.hours
-        let endTimeComponents           = dateComponents + 19.hours
-        let restStartTimeComponents     = dateComponents + 13.hours
-        let restEndTimeComponents       = dateComponents + 14.hours
-        attendanceInformation.type          = "出勤"
-        attendanceInformation.startTime     = NSDate(components: startTimeComponents)!
-        attendanceInformation.endTime       = NSDate(components: endTimeComponents)!
-        attendanceInformation.restStartTime = NSDate(components: restStartTimeComponents)!
-        attendanceInformation.restEndTime   = NSDate(components: restEndTimeComponents)!
-        attendanceInformation.memo          = "メモ"
-        attendanceInformation.date          = AttendanceInformation.convertPrimaryKey(year: attendanceInformation.startTime.year, month: attendanceInformation.startTime.month, day: attendanceInformation.startTime.day)
+        defaultAttendanceInformation()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,6 +63,27 @@ class InputAttendanceViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         }
+        else if segue.identifier == "ShowSelectRestStartDateTime", let viewController = segue.destinationViewController as? SelectDateTimeViewController {
+            // 休憩開始時間選択画面
+            viewController.instanciate(date: attendanceInformation.restStartTime) { [weak self] selectedDate in
+                self?.attendanceInformation.restStartTime = selectedDate
+                self?.tableView.reloadData()
+            }
+        }
+        else if segue.identifier == "ShowSelectRestEndDateTime", let viewController = segue.destinationViewController as? SelectDateTimeViewController {
+            // 休憩終了時間選択画面
+            viewController.instanciate(date: attendanceInformation.restEndTime) { [weak self] selectedDate in
+                self?.attendanceInformation.restEndTime = selectedDate
+                self?.tableView.reloadData()
+            }
+        }
+        else if segue.identifier == "ShowMemo", let viewController = segue.destinationViewController as? InputMemoViewController {
+            // 備考入力画面
+            viewController.instanciate(memo: attendanceInformation.memo) { [weak self] memo in
+                self?.attendanceInformation.memo = memo
+                self?.tableView.reloadData()
+            }
+        }
     }
     
     /// 決定ボタン
@@ -93,11 +109,28 @@ class InputAttendanceViewController: UIViewController {
     private func close() {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // 勤怠情報を初期化
+    private func defaultAttendanceInformation() {
+        let dateComponents = NSDate.defaultDateComponents(year: currentDate.year, month: currentDate.month, day: currentDate.day)
+        let startTimeComponents         = dateComponents + 10.hours
+        let endTimeComponents           = dateComponents + 19.hours
+        let restStartTimeComponents     = dateComponents + 13.hours
+        let restEndTimeComponents       = dateComponents + 14.hours
+        attendanceInformation.type          = "出勤"
+        attendanceInformation.startTime     = NSDate(components: startTimeComponents)!
+        attendanceInformation.endTime       = NSDate(components: endTimeComponents)!
+        attendanceInformation.restStartTime = NSDate(components: restStartTimeComponents)!
+        attendanceInformation.restEndTime   = NSDate(components: restEndTimeComponents)!
+        attendanceInformation.memo          = "メモ"
+        attendanceInformation.date          = AttendanceInformation.convertPrimaryKey(year: attendanceInformation.startTime.year, month: attendanceInformation.startTime.month, day: attendanceInformation.startTime.day)
+
+    }
 }
 
 extension InputAttendanceViewController: UITableViewDataSource {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -118,8 +151,10 @@ extension InputAttendanceViewController: UITableViewDataSource {
         case 2:
             cell.textLabel?.text = "\(attendanceInformation.endTimeDisplay)"
         case 3:
-            cell.textLabel?.text = "\(attendanceInformation.restStartTimeDisplay) 〜 \(attendanceInformation.restEndTimeDisplay)"
+            cell.textLabel?.text = "\(attendanceInformation.restStartTimeDisplay)"
         case 4:
+            cell.textLabel?.text = "\(attendanceInformation.restEndTimeDisplay)"
+        case 5:
             cell.textLabel?.text = attendanceInformation.memo
         default:
             break
@@ -129,20 +164,7 @@ extension InputAttendanceViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "種別"
-        case 1:
-            return "開始時間"
-        case 2:
-            return "終了時間"
-        case 3:
-            return "休憩時間"
-        case 4:
-            return "その他"
-        default:
-            return nil
-        }
+        return sectionTitleList[section]
     }
 }
 
@@ -153,18 +175,23 @@ extension InputAttendanceViewController: UITableViewDelegate {
         
         switch indexPath.section {
         case 0:
-            print("種別")
+            // 種別選択画面
             performSegueWithIdentifier("ShowSelectType", sender: self)
         case 1:
-            print("開始時間")
+            // 日時選択画面
             performSegueWithIdentifier("ShowSelectStartDateTime", sender: self)
         case 2:
-            print("終了時間")
+            // 日時選択画面
             performSegueWithIdentifier("ShowSelectEndDateTime", sender: self)
         case 3:
-            print("休憩時間")
+            // 日時選択画面
+            performSegueWithIdentifier("ShowSelectRestStartDateTime", sender: self)
         case 4:
-            print("その他")
+            // 日時選択画面
+            performSegueWithIdentifier("ShowSelectRestEndDateTime", sender: self)
+        case 5:
+            // 備考選択画面
+            performSegueWithIdentifier("ShowMemo", sender: self)
         default:
             break
         }

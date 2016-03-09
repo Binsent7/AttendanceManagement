@@ -414,6 +414,9 @@
                         <segue destination="gpI-RX-yYm" kind="show" identifier="ShowSelectType" id="m8D-l4-aQx"/>
                         <segue destination="jzv-yO-FBJ" kind="show" identifier="ShowSelectStartDateTime" id="0Fu-94-KLn"/>
                         <segue destination="jzv-yO-FBJ" kind="show" identifier="ShowSelectEndDateTime" id="MB9-E1-uwD"/>
+                        <segue destination="jzv-yO-FBJ" kind="show" identifier="ShowSelectRestStartDateTime" id="UKN-5j-JaD"/>
+                        <segue destination="jzv-yO-FBJ" kind="show" identifier="ShowSelectRestEndDateTime" id="Eeg-gG-0Uk"/>
+                        <segue destination="xTU-0m-eMl" kind="show" identifier="ShowMemo" id="Ywl-By-bzn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Qs-tb-1jZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -515,8 +518,77 @@
             </objects>
             <point key="canvasLocation" x="834.5" y="2517.5"/>
         </scene>
+        <!--備考-->
+        <scene sceneID="daH-Wm-sxE">
+            <objects>
+                <viewController title="備考" id="xTU-0m-eMl" customClass="InputMemoViewController" customModule="AttendanceManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P9Q-7T-K5u"/>
+                        <viewControllerLayoutGuide type="bottom" id="hcg-RD-PIP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="juA-gv-TK2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8Y-x3-tQC">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hHj-b7-ZNN"/>
+                                    <barButtonItem title="キャンセル" id="MbF-cb-xlv">
+                                        <connections>
+                                            <action selector="onTapCancelButton:" destination="xTU-0m-eMl" id="Gc2-NK-pEm"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="GfS-HI-zAr"/>
+                                    <barButtonItem title="決定" id="MjD-XV-iGO">
+                                        <connections>
+                                            <action selector="onTapDoneButton:" destination="xTU-0m-eMl" id="KK0-rY-Vnq"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="mM7-Ay-GHN"/>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7YO-yq-Qgw">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EeL-PF-xPN">
+                                        <rect key="frame" x="8" y="8" width="359" height="543"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="EeL-PF-xPN" secondAttribute="bottom" constant="8" id="9ul-CY-vRr"/>
+                                    <constraint firstAttribute="trailing" secondItem="EeL-PF-xPN" secondAttribute="trailing" constant="8" id="nxA-RU-ZhC"/>
+                                    <constraint firstItem="EeL-PF-xPN" firstAttribute="top" secondItem="7YO-yq-Qgw" secondAttribute="top" constant="8" id="qO0-IS-jLX"/>
+                                    <constraint firstItem="EeL-PF-xPN" firstAttribute="leading" secondItem="7YO-yq-Qgw" secondAttribute="leading" constant="8" id="vck-x5-tTG"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c8Y-x3-tQC" firstAttribute="top" secondItem="7YO-yq-Qgw" secondAttribute="bottom" id="1C6-vE-3rk"/>
+                            <constraint firstItem="7YO-yq-Qgw" firstAttribute="leading" secondItem="juA-gv-TK2" secondAttribute="leading" id="CaT-OX-ma8"/>
+                            <constraint firstAttribute="trailing" secondItem="7YO-yq-Qgw" secondAttribute="trailing" id="IQ2-BC-gqM"/>
+                            <constraint firstAttribute="trailing" secondItem="c8Y-x3-tQC" secondAttribute="trailing" id="NvT-xy-M7p"/>
+                            <constraint firstItem="c8Y-x3-tQC" firstAttribute="leading" secondItem="juA-gv-TK2" secondAttribute="leading" id="f6k-iQ-ZcO"/>
+                            <constraint firstItem="7YO-yq-Qgw" firstAttribute="top" secondItem="P9Q-7T-K5u" secondAttribute="bottom" id="rub-UL-uF9"/>
+                            <constraint firstItem="hcg-RD-PIP" firstAttribute="top" secondItem="c8Y-x3-tQC" secondAttribute="bottom" id="xpK-8V-EOd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="memoTextView" destination="EeL-PF-xPN" id="Ofb-53-vfE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uvI-wS-LfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="834.5" y="3264.5"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MB9-E1-uwD"/>
+        <segue reference="Eeg-gG-0Uk"/>
     </inferredMetricsTieBreakers>
 </document>
