@@ -52,6 +52,15 @@ class TopViewController: UIViewController {
         // FIXME: 選択状態も更新する
     }
     
+    // 削除ボタンタップ時にコール
+    @IBAction func onTapDeleteAttendance(sender: AnyObject) {
+        deleteAttendance()
+        
+        // FIXME: ここまとめたい
+        updateTitle(date: NSDate())
+        updateCuttentAttendance(date: calendarView.presentedDate)
+    }
+    
     // 指定の勤怠情報を更新
     private func updateCuttentAttendance(date date: CVDate) {
         let realm = try! Realm()
@@ -98,14 +107,22 @@ class TopViewController: UIViewController {
         
         var totalMonthWorkTime = 0.0
         attendanceListForMonth.forEach {
-            print("=============")
-            print($0.workTime)
-            print($0.totalWorkTime)
-            print($0.restTime)
             totalMonthWorkTime += $0.workTime
         }
         
         return totalMonthWorkTime
+    }
+    
+    // 指定日の情報をRealmから削除
+    private func deleteAttendance() {
+        let realm = try! Realm()
+        let date = calendarView.presentedDate.date + 9.hours
+        let id = AttendanceInformation.convertPrimaryKey(year: date.year, month: date.month, day: date.day)
+        if let attendance = realm.objectForPrimaryKey(AttendanceInformation.self, key: id) {
+            try! realm.write {
+                realm.delete(attendance)
+            }
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

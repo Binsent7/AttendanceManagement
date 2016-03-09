@@ -201,7 +201,11 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="bG5-8c-k8g"/>
-                                            <barButtonItem title="削除" id="jTt-bd-a3e"/>
+                                            <barButtonItem title="削除" id="jTt-bd-a3e">
+                                                <connections>
+                                                    <action selector="onTapDeleteAttendance:" destination="cXN-CB-cux" id="Nqt-F6-EeR"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="zNp-zp-Pjb"/>
                                         </items>
                                     </toolbar>
