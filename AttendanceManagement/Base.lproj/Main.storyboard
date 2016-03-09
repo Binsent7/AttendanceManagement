@@ -385,6 +385,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="基本設定" id="Ssn-FX-XMm"/>
                     <connections>
+                        <outlet property="tableView" destination="vQ7-7q-dTc" id="33z-cg-D2T"/>
                         <segue destination="CnH-Bs-SK8" kind="show" identifier="ShowBasicSettingStartTime" id="nlc-XZ-kNk"/>
                         <segue destination="CnH-Bs-SK8" kind="show" identifier="ShowBasicSettingEndTime" id="Us8-Uq-xRt"/>
                         <segue destination="CnH-Bs-SK8" kind="show" identifier="ShowBasicSettingRestStartTime" id="h6x-vU-ykr"/>
@@ -395,7 +396,7 @@
             </objects>
             <point key="canvasLocation" x="1336.5" y="571.5"/>
         </scene>
-        <!--Hour Minute Picker View Controller-->
+        <!--時間選択-->
         <scene sceneID="CxI-7f-mXV">
             <objects>
                 <viewController id="CnH-Bs-SK8" customClass="HourMinutePickerViewController" customModule="AttendanceManagement" customModuleProvider="target" sceneMemberID="viewController">
@@ -427,6 +428,10 @@
                             </toolbar>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="om9-dG-r7F">
                                 <rect key="frame" x="0.0" y="407" width="375" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="CnH-Bs-SK8" id="T5b-0L-yWE"/>
+                                    <outlet property="delegate" destination="CnH-Bs-SK8" id="IFD-yM-qBK"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -436,6 +441,10 @@
                             <constraint firstItem="eOU-2F-ipF" firstAttribute="leading" secondItem="pqU-6K-4Be" secondAttribute="leading" id="c14-qM-nWb"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="時間選択" id="NPQ-Di-nP6"/>
+                    <connections>
+                        <outlet property="pickerView" destination="om9-dG-r7F" id="117-Ye-7om"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uOX-5P-uXv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
