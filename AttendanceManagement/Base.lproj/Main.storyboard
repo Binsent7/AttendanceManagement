@@ -207,6 +207,12 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="zNp-zp-Pjb"/>
+                                            <barButtonItem title="設定" id="47c-lY-Nlr">
+                                                <connections>
+                                                    <segue destination="XsX-DV-5pq" kind="show" identifier="ShowSetting" id="gaU-MC-kLt"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="231-5b-Ta2"/>
                                         </items>
                                     </toolbar>
                                 </subviews>
@@ -266,7 +272,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="YE0-X6-WHj" kind="relationship" relationship="rootViewController" id="zpa-uN-5hB"/>
+                        <segue destination="8mZ-db-yLP" kind="relationship" relationship="rootViewController" id="m76-gG-MBM"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="crV-gp-0i9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -274,6 +280,52 @@
             <point key="canvasLocation" x="403.5" y="893.5"/>
         </scene>
         <!--設定-->
+        <scene sceneID="Ip9-w8-c0E">
+            <objects>
+                <viewController id="8mZ-db-yLP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hbI-U7-N2n"/>
+                        <viewControllerLayoutGuide type="bottom" id="2cR-dc-jG2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aLF-ez-WaX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHK-nv-CzE">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4eO-NT-lFs"/>
+                                    <barButtonItem title="閉じる" id="85D-nb-NvP"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="73P-kV-lxS"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xRc-UP-Fnu">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2cR-dc-jG2" firstAttribute="top" secondItem="MHK-nv-CzE" secondAttribute="bottom" id="4fM-Go-w0W"/>
+                            <constraint firstItem="xRc-UP-Fnu" firstAttribute="leading" secondItem="aLF-ez-WaX" secondAttribute="leading" id="A32-eL-o46"/>
+                            <constraint firstAttribute="trailing" secondItem="xRc-UP-Fnu" secondAttribute="trailing" id="Dr0-Qp-Uca"/>
+                            <constraint firstItem="MHK-nv-CzE" firstAttribute="leading" secondItem="aLF-ez-WaX" secondAttribute="leading" id="KYg-Jf-8Es"/>
+                            <constraint firstItem="xRc-UP-Fnu" firstAttribute="top" secondItem="hbI-U7-N2n" secondAttribute="bottom" id="XJN-HY-P36"/>
+                            <constraint firstAttribute="trailing" secondItem="MHK-nv-CzE" secondAttribute="trailing" id="XkG-dF-bkL"/>
+                            <constraint firstItem="MHK-nv-CzE" firstAttribute="top" secondItem="xRc-UP-Fnu" secondAttribute="bottom" id="YLt-dZ-eRU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="設定" id="elJ-aC-5zr"/>
+                    <connections>
+                        <segue destination="YE0-X6-WHj" kind="show" id="zeW-83-GcG"/>
+                        <segue destination="1Pi-y8-Wg0" kind="show" id="IPq-EB-sAb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UzL-4Q-nur" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844.5" y="893.5"/>
+        </scene>
+        <!--基本設定-->
         <scene sceneID="hkF-kY-pjs">
             <objects>
                 <viewController id="YE0-X6-WHj" customClass="SettingViewController" customModule="AttendanceManagement" customModuleProvider="target" sceneMemberID="viewController">
@@ -323,11 +375,55 @@
                             <constraint firstItem="qnY-6t-DYb" firstAttribute="top" secondItem="F9J-xw-nL4" secondAttribute="bottom" id="zal-Sm-rBY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="設定" id="Ssn-FX-XMm"/>
+                    <navigationItem key="navigationItem" title="基本設定" id="Ssn-FX-XMm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPz-UN-beb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="861.5" y="893.5"/>
+            <point key="canvasLocation" x="1336.5" y="571.5"/>
+        </scene>
+        <!--認証-->
+        <scene sceneID="MdV-BE-tNv">
+            <objects>
+                <viewController id="1Pi-y8-Wg0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kYW-F1-fLm"/>
+                        <viewControllerLayoutGuide type="bottom" id="CPF-Fy-AFy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xpq-lY-jO3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BmN-hF-eSp">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3mG-CD-Izm"/>
+                                    <barButtonItem title="キャンセル" id="Rer-AX-35d"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hWa-nf-aTM"/>
+                                    <barButtonItem title="保存" id="jlF-QZ-d31"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="IAR-pQ-pX9"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UEy-i6-0Fv">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BmN-hF-eSp" firstAttribute="leading" secondItem="Xpq-lY-jO3" secondAttribute="leading" id="DSB-eF-oyM"/>
+                            <constraint firstItem="BmN-hF-eSp" firstAttribute="top" secondItem="UEy-i6-0Fv" secondAttribute="bottom" id="Fpm-l5-JzW"/>
+                            <constraint firstAttribute="trailing" secondItem="BmN-hF-eSp" secondAttribute="trailing" id="WCK-OV-iHE"/>
+                            <constraint firstItem="UEy-i6-0Fv" firstAttribute="top" secondItem="kYW-F1-fLm" secondAttribute="bottom" id="afd-4r-MOa"/>
+                            <constraint firstItem="CPF-Fy-AFy" firstAttribute="top" secondItem="BmN-hF-eSp" secondAttribute="bottom" id="cT7-lu-rFh"/>
+                            <constraint firstAttribute="trailing" secondItem="UEy-i6-0Fv" secondAttribute="trailing" id="fsH-8q-Sc1"/>
+                            <constraint firstItem="UEy-i6-0Fv" firstAttribute="leading" secondItem="Xpq-lY-jO3" secondAttribute="leading" id="v7B-iI-9At"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="認証" id="qM0-JO-3Eg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X0y-PQ-2kq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1336.5" y="1342.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lfh-Ew-26Z">
@@ -425,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Qs-tb-1jZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="374.5" y="1673.5"/>
+            <point key="canvasLocation" x="-72.5" y="2453.5"/>
         </scene>
         <!--種別選択-->
         <scene sceneID="UPQ-UO-XnT">
@@ -461,7 +557,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAh-a5-2df" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="834.5" y="1673.5"/>
+            <point key="canvasLocation" x="403.5" y="3531.5"/>
         </scene>
         <!--時間選択-->
         <scene sceneID="Z6u-M5-WhQ">
@@ -514,13 +610,14 @@
                             <constraint firstItem="CaH-lg-uW4" firstAttribute="leading" secondItem="Nub-Fh-zMH" secondAttribute="leading" id="t1m-kd-UoB"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="時間選択" id="574-Sa-xFD"/>
                     <connections>
                         <outlet property="datePicker" destination="CaH-lg-uW4" id="dzT-Mn-cWS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NcK-BD-ljo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="834.5" y="2517.5"/>
+            <point key="canvasLocation" x="-72.5" y="3531.5"/>
         </scene>
         <!--備考-->
         <scene sceneID="daH-Wm-sxE">
@@ -599,6 +696,7 @@
                             <constraint firstItem="hcg-RD-PIP" firstAttribute="top" secondItem="c8Y-x3-tQC" secondAttribute="bottom" id="xpK-8V-EOd"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="備考入力" id="WK6-c1-sSl"/>
                     <connections>
                         <outlet property="memoDoneButton" destination="AzN-ux-mZa" id="mWz-Me-Kzv"/>
                         <outlet property="memoTextView" destination="EeL-PF-xPN" id="Ofb-53-vfE"/>
@@ -606,10 +704,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uvI-wS-LfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="834.5" y="3264.5"/>
+            <point key="canvasLocation" x="-528.5" y="3531.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Eeg-gG-0Uk"/>
+        <segue reference="0Fu-94-KLn"/>
     </inferredMetricsTieBreakers>
 </document>
