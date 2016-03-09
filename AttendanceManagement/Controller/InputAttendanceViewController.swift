@@ -26,7 +26,14 @@ class InputAttendanceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        defaultAttendanceInformation()
+        let realm = try! Realm()
+        let id = AttendanceInformation.convertPrimaryKey(year: currentDate.year, month: currentDate.month, day: currentDate.day)
+        if let savedData = realm.objectForPrimaryKey(AttendanceInformation.self, key: id) {
+            attendanceInformation = AttendanceInformation(value: savedData)
+        }
+        else {
+            defaultAttendanceInformation()
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -122,7 +129,7 @@ class InputAttendanceViewController: UIViewController {
         attendanceInformation.endTime       = NSDate(components: endTimeComponents)!
         attendanceInformation.restStartTime = NSDate(components: restStartTimeComponents)!
         attendanceInformation.restEndTime   = NSDate(components: restEndTimeComponents)!
-        attendanceInformation.memo          = "メモ"
+        attendanceInformation.memo          = ""
         attendanceInformation.date          = AttendanceInformation.convertPrimaryKey(year: attendanceInformation.startTime.year, month: attendanceInformation.startTime.month, day: attendanceInformation.startTime.day)
 
     }

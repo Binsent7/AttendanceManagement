@@ -18,6 +18,7 @@ class InputMemoViewController: UIViewController {
     var memo: String?
     
     @IBOutlet weak var memoTextView: UITextView!
+    @IBOutlet weak var memoDoneButton: UIButton!
     
     func instanciate(memo memo: String = "", completionHandler: InputMemoCompletionHandler?) {
         self.completionHandler = completionHandler
@@ -27,6 +28,8 @@ class InputMemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         memoTextView.text = memo
+        
+        memoDoneButton.hidden = true
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -56,8 +59,43 @@ class InputMemoViewController: UIViewController {
         close()
     }
     
+    /// 入力確定ボタン
+    @IBAction func onTapMemoDoneButton(sender: AnyObject) {
+        // キーボードを閉じる
+        memoTextView.resignFirstResponder()
+    }
+    
     // 閉じる
     private func close() {
-        dismissViewControllerAnimated(true, completion: nil)
+        navigationController?.popViewControllerAnimated(true)
+    }
+}
+
+extension InputMemoViewController: UITextViewDelegate {
+    
+    // 編集開始された直後にコール
+    func textViewDidBeginEditing(textView: UITextView) {
+        memoDoneButton.hidden = false
+    }
+    
+    // 編集された際にコール
+    func textView(textView: UITextView, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        return true
+    }
+    
+    // 改行ボタン押下時にコール
+    func textViewShouldReturn(textView: UITextView) -> Bool {
+        return true
+    }
+    
+    // クリアボタン押下時にコール
+    func textViewShouldClear(textView: UITextView) -> Bool {
+        return true
+    }
+    
+    // 編集完了後にコール
+    func textViewDidEndEditing(textView: UITextView) {
+        memo = textView.text
+        memoDoneButton.hidden = true
     }
 }
