@@ -187,27 +187,32 @@ extension InputAttendanceViewController: UITableViewDelegate {
         // セルの選択状態を解除
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        var segueIdentifier = ""
         switch indexPath.section {
         case 0:
             // 種別選択画面
-            performSegueWithIdentifier("ShowSelectType", sender: self)
+            segueIdentifier = "ShowSelectType"
         case 1:
             // 日時選択画面
-            performSegueWithIdentifier("ShowSelectStartDateTime", sender: self)
+            segueIdentifier = "ShowSelectStartDateTime"
         case 2:
             // 日時選択画面
-            performSegueWithIdentifier("ShowSelectEndDateTime", sender: self)
+            segueIdentifier = "ShowSelectEndDateTime"
         case 3:
             // 日時選択画面
-            performSegueWithIdentifier("ShowSelectRestStartDateTime", sender: self)
+            segueIdentifier = "ShowSelectRestStartDateTime"
         case 4:
             // 日時選択画面
-            performSegueWithIdentifier("ShowSelectRestEndDateTime", sender: self)
+            segueIdentifier = "ShowSelectRestEndDateTime"
         case 5:
             // 備考選択画面
-            performSegueWithIdentifier("ShowMemo", sender: self)
+            segueIdentifier = "ShowMemo"
         default:
             break
+        }
+        
+        if !segueIdentifier.isEmpty {
+            performSegueWithIdentifier(segueIdentifier, sender: self)
         }
     }
 }

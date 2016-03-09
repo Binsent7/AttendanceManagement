@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class SettingViewController: UIViewController {
-    let sectionTitleList = ["出勤時間","退勤時間","休憩開始時間","休憩終了時間"]
+    let sectionTitleList = ["基本設定","認証"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,27 +26,14 @@ class SettingViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    // 保存ボタンタップ
-    @IBAction func onTapSaveButon(sender: AnyObject) {
-        // FIXME: 保存する処理
-        close()
-    }
-    
-    // キャンセルボタンタップ
-    @IBAction func onTapCancelButton(sender: AnyObject) {
+    // 閉じるボタンタップ
+    @IBAction func onTapCloseButton(sender: AnyObject) {
         close()
     }
     
     // 画面を閉じる
     private func close() {
         dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    /*
-    DatePickerが選ばれた際に呼ばれる.
-    */
-    internal func onDidChangeDate(sender: UIDatePicker){
-        print(sender.date)
     }
 }
 
@@ -61,16 +48,30 @@ extension SettingViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .Default, reuseIdentifier: "cell")
+        cell.textLabel?.text = sectionTitleList[indexPath.section]
         return cell
     }
 }
 
 extension SettingViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitleList[section]
-    }
-    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        var segueIdentifier = ""
+        switch indexPath.section {
+        case 0:
+            // 種別選択画面
+            segueIdentifier = "ShowBasicSetting"
+        case 1:
+            // 日時選択画面
+            segueIdentifier = "ShowAuthSetting"
+        default:
+            break
+        }
+        
+        if !segueIdentifier.isEmpty {
+            performSegueWithIdentifier(segueIdentifier, sender: self)
+        }
+
     }
 }

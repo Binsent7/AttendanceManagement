@@ -16,6 +16,8 @@
 		324B04BB1C8C322A00B47344 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324B04BA1C8C322A00B47344 /* Settings.swift */; };
 		327E24221C9013C600A46BDE /* InputMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E24211C9013C500A46BDE /* InputMemoViewController.swift */; };
 		327E24241C9035CB00A46BDE /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327E24231C9035CB00A46BDE /* LocalAuthentication.framework */; };
+		327E24261C903AE400A46BDE /* BasicSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E24251C903AE400A46BDE /* BasicSettingViewController.swift */; };
+		327E24281C903CCA00A46BDE /* AuthSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E24271C903CCA00A46BDE /* AuthSettingViewController.swift */; };
 		32AF829C1C79EF0C00396079 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF829B1C79EF0C00396079 /* AppDelegate.swift */; };
 		32AF82A11C79EF0C00396079 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AF829F1C79EF0C00396079 /* Main.storyboard */; };
 		32AF82A31C79EF0D00396079 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32AF82A21C79EF0D00396079 /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 		324B04BA1C8C322A00B47344 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		327E24211C9013C500A46BDE /* InputMemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputMemoViewController.swift; sourceTree = "<group>"; };
 		327E24231C9035CB00A46BDE /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		327E24251C903AE400A46BDE /* BasicSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSettingViewController.swift; sourceTree = "<group>"; };
+		327E24271C903CCA00A46BDE /* AuthSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSettingViewController.swift; sourceTree = "<group>"; };
 		32AF82981C79EF0C00396079 /* AttendanceManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttendanceManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32AF829B1C79EF0C00396079 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32AF82A01C79EF0C00396079 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				327E24211C9013C500A46BDE /* InputMemoViewController.swift */,
 				321832591C8DBD9300F81961 /* SelectDateTimeViewController.swift */,
 				324B04B81C8C2EC100B47344 /* SettingViewController.swift */,
+				327E24251C903AE400A46BDE /* BasicSettingViewController.swift */,
+				327E24271C903CCA00A46BDE /* AuthSettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -344,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				327E24261C903AE400A46BDE /* BasicSettingViewController.swift in Sources */,
 				3240D7C71C85EC820026DA6A /* InputAttendanceViewController.swift in Sources */,
 				324B04B41C8BD36D00B47344 /* AttendanceInformation.swift in Sources */,
 				32CCAC991C888ECF00BC64ED /* SelectTypeViewController.swift in Sources */,
@@ -355,6 +362,7 @@
 				324B04BB1C8C322A00B47344 /* Settings.swift in Sources */,
 				3217DB511C831B0D001360B2 /* CVDate.swift in Sources */,
 				32AF829C1C79EF0C00396079 /* AppDelegate.swift in Sources */,
+				327E24281C903CCA00A46BDE /* AuthSettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
