@@ -384,10 +384,62 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="基本設定" id="Ssn-FX-XMm"/>
+                    <connections>
+                        <segue destination="CnH-Bs-SK8" kind="show" identifier="ShowBasicSettingStartTime" id="nlc-XZ-kNk"/>
+                        <segue destination="CnH-Bs-SK8" kind="show" identifier="ShowBasicSettingEndTime" id="Us8-Uq-xRt"/>
+                        <segue destination="CnH-Bs-SK8" kind="show" identifier="ShowBasicSettingRestStartTime" id="h6x-vU-ykr"/>
+                        <segue destination="CnH-Bs-SK8" kind="show" identifier="ShowBasicSettingRestEndTime" id="PcB-CA-uwn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPz-UN-beb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1336.5" y="571.5"/>
+        </scene>
+        <!--Hour Minute Picker View Controller-->
+        <scene sceneID="CxI-7f-mXV">
+            <objects>
+                <viewController id="CnH-Bs-SK8" customClass="HourMinutePickerViewController" customModule="AttendanceManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CMg-my-JdC"/>
+                        <viewControllerLayoutGuide type="bottom" id="saL-Bg-WgO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pqU-6K-4Be">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOU-2F-ipF">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WSn-mm-puN"/>
+                                    <barButtonItem title="キャンセル" id="va6-RF-dXt">
+                                        <connections>
+                                            <action selector="onTapCancelButton:" destination="CnH-Bs-SK8" id="5gd-GQ-qKq"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="OP9-q5-HDO"/>
+                                    <barButtonItem title="決定" id="Wwy-ui-ybx">
+                                        <connections>
+                                            <action selector="onTapDoneButon:" destination="CnH-Bs-SK8" id="dgC-Ds-Jjz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="OLB-lv-hTB"/>
+                                </items>
+                            </toolbar>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="om9-dG-r7F">
+                                <rect key="frame" x="0.0" y="407" width="375" height="216"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eOU-2F-ipF" secondAttribute="trailing" id="E1G-C0-trl"/>
+                            <constraint firstItem="saL-Bg-WgO" firstAttribute="top" secondItem="eOU-2F-ipF" secondAttribute="bottom" id="He5-RA-bW2"/>
+                            <constraint firstItem="eOU-2F-ipF" firstAttribute="leading" secondItem="pqU-6K-4Be" secondAttribute="leading" id="c14-qM-nWb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uOX-5P-uXv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1902.5" y="571.5"/>
         </scene>
         <!--認証-->
         <scene sceneID="MdV-BE-tNv">
@@ -724,6 +776,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="PcB-CA-uwn"/>
         <segue reference="0Fu-94-KLn"/>
     </inferredMetricsTieBreakers>
 </document>

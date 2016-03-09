@@ -42,3 +42,47 @@ class BasicSettingViewController: UIViewController {
         navigationController?.popViewControllerAnimated(true)
     }
 }
+
+extension BasicSettingViewController: UITableViewDataSource {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return sectionTitleList.count
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .Default, reuseIdentifier: "cell")
+        cell.textLabel?.text = sectionTitleList[indexPath.section]
+        return cell
+    }
+}
+
+extension BasicSettingViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        var segueIdentifier = ""
+        switch indexPath.section {
+        case 0:
+            // 出勤時間
+            segueIdentifier = "ShowBasicSettingStartTime"
+        case 1:
+            // 退勤時間
+            segueIdentifier = "ShowBasicSettingEndTime"
+        case 2:
+            // 休憩開始時間
+            segueIdentifier = "ShowBasicSettingRestStartTime"
+        case 3:
+            // 休憩終了時間
+            segueIdentifier = "ShowBasicSettingRestEndTime"
+        default:
+            break
+        }
+        
+        if !segueIdentifier.isEmpty {
+            performSegueWithIdentifier(segueIdentifier, sender: self)
+        }
+    }
+}

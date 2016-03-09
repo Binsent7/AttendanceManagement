@@ -72,6 +72,5 @@ extension SettingViewController: UITableViewDelegate {
         if !segueIdentifier.isEmpty {
             performSegueWithIdentifier(segueIdentifier, sender: self)
         }
-
     }
 }
