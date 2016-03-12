@@ -19,6 +19,7 @@
 		327E24261C903AE400A46BDE /* BasicSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E24251C903AE400A46BDE /* BasicSettingViewController.swift */; };
 		327E24281C903CCA00A46BDE /* AuthSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E24271C903CCA00A46BDE /* AuthSettingViewController.swift */; };
 		327E242A1C90432900A46BDE /* HourMinutePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327E24291C90432900A46BDE /* HourMinutePickerViewController.swift */; };
+		32A2C58F1C940EDB005ADDDC /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A2C58E1C940EDB005ADDDC /* AuthViewController.swift */; };
 		32AF829C1C79EF0C00396079 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF829B1C79EF0C00396079 /* AppDelegate.swift */; };
 		32AF82A11C79EF0C00396079 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AF829F1C79EF0C00396079 /* Main.storyboard */; };
 		32AF82A31C79EF0D00396079 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32AF82A21C79EF0D00396079 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		327E24251C903AE400A46BDE /* BasicSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicSettingViewController.swift; sourceTree = "<group>"; };
 		327E24271C903CCA00A46BDE /* AuthSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSettingViewController.swift; sourceTree = "<group>"; };
 		327E24291C90432900A46BDE /* HourMinutePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourMinutePickerViewController.swift; sourceTree = "<group>"; };
+		32A2C58E1C940EDB005ADDDC /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		32AF82981C79EF0C00396079 /* AttendanceManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttendanceManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32AF829B1C79EF0C00396079 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32AF82A01C79EF0C00396079 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				32AF82BC1C79F01300396079 /* TopViewController.swift */,
+				32A2C58E1C940EDB005ADDDC /* AuthViewController.swift */,
 				3240D7C61C85EC820026DA6A /* InputAttendanceViewController.swift */,
 				32CCAC981C888ECF00BC64ED /* SelectTypeViewController.swift */,
 				327E24211C9013C500A46BDE /* InputMemoViewController.swift */,
@@ -360,6 +363,7 @@
 				327E24261C903AE400A46BDE /* BasicSettingViewController.swift in Sources */,
 				3240D7C71C85EC820026DA6A /* InputAttendanceViewController.swift in Sources */,
 				324B04B41C8BD36D00B47344 /* AttendanceInformation.swift in Sources */,
+				32A2C58F1C940EDB005ADDDC /* AuthViewController.swift in Sources */,
 				32CCAC991C888ECF00BC64ED /* SelectTypeViewController.swift in Sources */,
 				3218325A1C8DBD9300F81961 /* SelectDateTimeViewController.swift in Sources */,
 				32C0F86D1C905BA6004AB356 /* BasicAttendance.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Fkx-vD-Qdb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5BN-Ym-hGs">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -305,7 +305,7 @@
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="xRc-UP-Fnu">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="8mZ-db-yLP" id="89j-Ac-JXJ"/>
                                     <outlet property="delegate" destination="8mZ-db-yLP" id="0G5-CL-RYq"/>
@@ -482,7 +482,7 @@
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="UEy-i6-0Fv">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -518,6 +518,37 @@
             </objects>
             <point key="canvasLocation" x="-72.5" y="1673.5"/>
         </scene>
+        <!--認証-->
+        <scene sceneID="Re7-ki-QYm">
+            <objects>
+                <viewController id="l0H-3I-0p0" customClass="AuthViewController" customModule="AttendanceManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QAa-QN-R9j"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ojr-g8-eNO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UfX-AT-7KN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQH-Tf-Eio">
+                                <rect key="frame" x="157" y="319" width="60" height="30"/>
+                                <state key="normal" title="認証開始"/>
+                                <connections>
+                                    <action selector="onTapTestButton:" destination="l0H-3I-0p0" eventType="touchUpInside" id="WHZ-UN-jX2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="認証" id="1Y0-QL-gMv"/>
+                    <connections>
+                        <segue destination="Fkx-vD-Qdb" kind="custom" identifier="ShowTop" id="cJi-lU-ykH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zOa-N4-3kF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-956.5" y="893.5"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="rGD-wB-vch">
             <objects>
@@ -534,6 +565,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SOF-yW-gKs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-516" y="894"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="d9J-UC-5Ci">
+            <objects>
+                <navigationController id="5BN-Ym-hGs" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Njv-3t-c0W">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="l0H-3I-0p0" kind="relationship" relationship="rootViewController" id="h2z-L1-Trx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SQ9-Tk-ZIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1410.5" y="893.5"/>
         </scene>
         <!--勤怠入力-->
         <scene sceneID="3Bm-Ga-nOC">
